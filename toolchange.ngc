@@ -1,0 +1,86 @@
+o<toolchange> sub
+;####################################################
+; Clear Output -turn off digital output immediately.
+;####################################################
+
+
+
+G53 G0 X0
+G53 G0 Z0
+
+
+G4P0.1
+
+M65 P1
+M65 P2
+M65 P3
+M65 P4
+
+M100 P#<selected_pocket>
+
+
+
+
+	o101 if [#<selected_pocket> EQ 1]
+		M65 P1
+		M65 P2
+		M65 P3
+                 
+	o101 endif
+
+	o102 if [#<selected_pocket> EQ 2]
+		M64 P1
+		M65 P2
+		M65 P3
+                 
+	o102 endif
+
+	o103 if [#<selected_pocket> EQ 3]
+		M65 P1
+		M64 P2
+		M65 P3
+		 
+	o103 endif
+
+	o104 if [#<selected_pocket> EQ 4]
+		M64 P1
+		M64 P2
+		M65 P3
+	o104 endif
+
+	o105 if [#<selected_pocket> EQ 5]
+		M65 P1
+		M65 P2
+		M64 P3
+	o105 endif
+
+	o106 if [#<selected_pocket> EQ 6]
+		M64 P1
+		M65 P2
+		M64 P3
+	o106 endif
+
+	o107 if [#<selected_pocket> EQ 7]
+		M65 P1
+		M64 P2
+		M64 P3
+	o107 endif
+
+	o108 if [#<selected_pocket> EQ 8]
+		M64 P1
+		M64 P2
+		M64 P3
+	o108 endif
+
+	M64 P4
+
+        M66 P1 L1 Q100
+	O109 if [#5399 LT 0]
+		(abort, failed to move arm out)
+	O109 endif
+
+G4P0.1
+
+g43 H#<selected_tool>
+
+o<toolchange> endsub [1]

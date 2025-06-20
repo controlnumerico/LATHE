@@ -1,0 +1,29 @@
+# Incluya sus comandos HAL custom aquí
+# Este archivo no se sobrescribirá cuando vuelva a ejecutar stepconf
+
+loadusr -Wn spindle-vfd mb2hal config=mb2hal.ini
+
+loadrt mux4 names=mux4.runmode
+loadrt limit1 names=limit1.freq
+loadrt mult2 names=mult2.freq
+
+addf mux4.runmode servo-thread
+addf mult2.freq servo-thread
+addf limit1.freq servo-thread
+
+setp mux4.runmode.in0 6         # Dec. stop
+setp mux4.runmode.in1 2         # Reverse
+setp mux4.runmode.in2 7         # Dec. stop
+setp mux4.runmode.in3 1         # Forward
+net spindle-on spindle.0.on => mux4.runmode.sel0
+net spindle-fwd spindle.0.forward => mux4.runmode.sel1
+net spindle-runmode mux4.runmode.out => spindle-vfd.runmode.command.float
+
+net spindle-speed spindle.0.speed-out-abs => mult2.freq.in0
+setp mult2.freq.in1 2.659   # 10000 / 3650 SMax = 2.73972602
+net spindle-speed-raw mult2.freq.out => limit1.freq.in
+
+# Limit speed output
+setp limit1.freq.min 0      # Min. Frequency * 100
+setp limit1.freq.max 10000      # Max. Frequency * 100
+net spindle-speed-cmd limit1.freq.out => spindle-vfd.frequency.hz.float

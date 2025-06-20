@@ -1,0 +1,3 @@
+mbpoll -m rtu -b 19200 -0 -t 4:hex -P none -v /dev/MBus485 -1 1 -r 8192     //Start
+mbpoll -m rtu -b 19200 -0 -t 4:hex -P none -v /dev/MBus485 -1 6 -r 8192     //Stop
+

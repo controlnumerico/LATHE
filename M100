@@ -1,0 +1,10 @@
+#!/bin/bash
+voltage=$1
+ 
+
+echo $voltage > /home/cnc/linuxcnc/nc_files/1.txt
+exit 0
+
+
+
+

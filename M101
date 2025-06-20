@@ -1,0 +1,30 @@
+#!/bin/bash
+RqstTC=$1
+
+
+halcmd setp spindle-vfd.Test.RqstTC.float $RqstTC
+halcmd setp spindle-vfd.Test.Orden.float 170
+
+RealTool=$(halcmd getp spindle-vfd.Test3.RealTool.int)
+AskedTool=$(halcmd getp spindle-vfd.Test.RqstTC.float)
+
+echo $RealTool > /home/cnc/linuxcnc/nc_files/1.txt
+echo $AskedTool > /home/cnc/linuxcnc/nc_files/2.txt
+
+while [ $RealTool -ne $AskedTool ]
+do
+
+RealTool=$(halcmd getp spindle-vfd.Test3.RealTool.int)
+AskedTool=$(halcmd getp spindle-vfd.Test.RqstTC.float)
+
+done
+
+halcmd setp spindle-vfd.Test.Orden.float 0
+
+
+
+
+
+
+
+
