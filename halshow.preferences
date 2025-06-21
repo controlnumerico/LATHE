@@ -1,6 +1,6 @@
 # Halshow settings
 # This file is generated automatically.
-wm geometry . 1244x755+60+167
+wm geometry . 1920x997+-10+17
 placeFrames 0.3
 set ::ratio 0.3
 set ::old_w_leftf 160
