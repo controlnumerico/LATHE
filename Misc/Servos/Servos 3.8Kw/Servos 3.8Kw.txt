@@ -1,0 +1,28 @@
+P-098 Enable = 1
+
+
+P-000  Default 315 Cambiar a 385
+P-002  Motor 3.8Kw = 51     esta en 48
+
+Regresar el valor P-000 a 315
+
+
+
+P-029 = 8  (250 PPmm)
+=============================
+Encoder 2500PPR  Driver 4*2500= 10,000PPR
+P-029 = 8 = 10,000/8 = 1250PPR
+
+1250PPR = 5mm
+   250P = 1mm
+      0.004mm  Resolucion por paso minima
+=============================
+
+
+p-080 = 600  OUT OF RANGE
+
+
+
+
+
+
