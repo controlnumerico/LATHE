@@ -1,0 +1,120 @@
+#include <ModbusRTU.h>
+#include <SoftwareSerial.h>
+#include <Wire.h>
+#include <Adafruit_ADS1X15.h>
+
+Adafruit_ADS1115 ads;
+SoftwareSerial S(16, 17);// we need one serial port for communicating with RS 485 to TTL adapter
+
+#define POT_VAL_REG 0
+#define REGN 0
+#define SLAVE_ID 2
+
+const int portPin = 26;
+
+
+int coilValue = 0;
+int AskedTool = 0;
+
+int Coil_1 = 32;
+int Coil_2 = 33;
+int Coil_3 = 27;
+int Coil_4 = 14;
+int Coil_5 = 12;
+int Coil_6 = 13;
+
+ModbusRTU mb;
+
+void setup() {
+
+
+ads.begin();
+// Salidas:   D32, D33 D27, D14, D12, D13
+pinMode (Coil_1, OUTPUT);
+pinMode (Coil_2, OUTPUT);
+pinMode (Coil_3, OUTPUT);
+pinMode (Coil_4, OUTPUT);
+pinMode (Coil_5, OUTPUT);
+pinMode (Coil_6, OUTPUT);
+
+  //Serial.begin(115200);
+  S.begin(57600, SWSERIAL_8N1);
+  mb.begin(&S,23); // RE/DE connected to D2
+  mb.slave(SLAVE_ID);
+
+mb.addCoil(REGN,0,6);
+mb.addHreg(REGN,0,5); //No Registros
+mb.addIsts(REGN,0,5);
+mb.addIreg(REGN,0,5);
+
+mb.Coil(REGN+0,0);
+mb.Coil(REGN+1,0);
+mb.Coil(REGN+2,0);
+mb.Coil(REGN+3,0);
+mb.Coil(REGN+4,0);
+mb.Coil(REGN+5,0);
+
+  mb.Hreg(REGN, 01);
+  mb.Hreg(REGN+1, 02);
+  mb.Hreg(REGN+2, 03);
+  mb.Hreg(REGN+3, 04);
+  mb.Hreg(REGN+4, 05);
+
+
+
+mb.Ireg(REGN, 01);
+
+}
+
+void loop() {
+          coilValue = int(mb.Hreg(REGN+1));   //170 to be true
+          AskedTool = mb.Hreg(REGN);
+            if (coilValue == 170) 
+                {
+                  mb.Hreg(REGN+1,0);  //Resetea Valor
+                    while (AskedTool != getTool()) 
+                          {
+                            digitalWrite(Coil_6, HIGH);
+                            digitalWrite(Coil_5, HIGH);
+                          }
+                    digitalWrite(Coil_6, LOW);
+                    delay(2000);
+                    digitalWrite(Coil_5, LOW);
+
+                } else 
+                     {
+                       digitalWrite(Coil_6, LOW);
+                       digitalWrite(Coil_5, LOW);
+                     }
+  
+          mb.Ireg(REGN, getTool());
+          delay(10);
+          mb.task();
+          //yield();
+           }
+
+
+// D23  RS485
+
+// Salidas:   D32, D33 D27, D14, D12, D13
+// Entradas:  D15, D2, D4, D5, D18, D19
+
+//  DAC2  D25
+//  DAC1  D26
+
+
+
+
+
+
+
+
+int getTool(){
+
+int16_t raw_value = ads.readADC_SingleEnded(0); // Read raw value from A0
+
+raw_value = map(raw_value, 0, 17545, 1, 11);
+
+
+  return raw_value;
+}

@@ -119,8 +119,8 @@ net home-z          <= parport.0.pin-13-in-not
 net stop_signal parport.0.pin-10-in or2.estop.in0
 
 
-net spindle-phase-a <= parport.1.pin-10-in
-net spindle-phase-b <= parport.1.pin-11-in
+net spindle-phase-a <= parport.1.pin-11-in
+net spindle-phase-b <= parport.1.pin-10-in
 net spindle-index   <= parport.1.pin-12-in
 net din-01          <= parport.1.pin-13-in
 net din-02          <= parport.1.pin-15-in

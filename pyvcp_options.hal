@@ -18,11 +18,25 @@ net spindle-fb-filtered-abs-rpm  scale.0.out    => pyvcp.spindle-speed
 # **** set up spindle at speed indicator ****
 # **** force spindle at speed indicator true because we chose no feedback ****
 
-sets spindle-at-speed true
+
+####
+# load a near component and attach it to a thread
+loadrt near
+addf near.0 servo-thread
+
+net spindle-speed             =>  near.0.in1
+net spindle-fb-filtered-abs-rpm   =>  near.0.in2
+net spindle-at-speed                <=  near.0.out
+setp near.0.scale 1.500000
 net spindle-at-speed       => pyvcp.spindle-at-speed-led
 
 
 
+
+
+
+
+net spindle-at-speed       => pyvcp.spindle-at-speed-led
 
 net RealT spindle-vfd.Test3.RealTool.float pyvcp.RealT
 

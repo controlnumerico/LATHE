@@ -1,0 +1,9 @@
+4 Pos
+
+1.- Blanco
+2.- Azul
+3.- Morado
+4.- Naranja
+
+(-) Amarillo
+(+) Rojo

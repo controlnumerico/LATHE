@@ -1,0 +1,73 @@
+
+===========================================================
+P0-01 	0	Vector Control
+P0-02	0	Panel
+P0-03	2	Main frequency source X selection - AI1 Pot J9 Arriba
+
+P0-10	60	Maximum frequency
+P0-08	60	Preset frequency
+P0-09	0	Rotation direction
+
+P0-11	0	Source of frequency upper limit
+P0-12	60	Frequency upper limit
+
+P0-17	10	ACCEL
+P0-18	10	Deceleration
+
+                =====================
+		p0-17=30
+		p0-18=30
+		p9-06=200
+		=====================
+
+P1-01	2.2	Power Kw
+P1-02	220	Voltage
+P1-03	25	Current
+P1-04	60	Freq
+P1-05	3600	Speed
+
+
+Tuning NO LOAD
+
+P1-37	2	RUN
+===========================================================
+MODbUS
+
+P0-02	2	COMM
+P0-03	9	COMM
+P0-11	5	COMM
+P0-28	0	Modbus
+
+PD-00	8	57600 Baud rate
+PD-02	1	Local Addr
+PD 05   1	Standard Modbus protocol
+===========================================================
+
+Alarma   OutPut
+
+P5-02	38 Alarma  Cierra TA y TB
+================
+
+Chillers
+
+P5-04	1	D01-AC Driver Running
+P5-01	1	D02
+
+D01 or D02	(-)	SSR
++24v		(+)	SSR
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

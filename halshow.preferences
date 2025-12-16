@@ -1,50 +1,21 @@
 # Halshow settings
 # This file is generated automatically.
-wm geometry . 1920x997+-10+17
+wm geometry . 717x572+91+41
 placeFrames 0.3
 set ::ratio 0.3
 set ::old_w_leftf 160
 set ::watchlist {
-    sig+din-01
-    sig+din-02
-    sig+dout-01
-    sig+dout-02
-    sig+dout-03
-    sig+dout-04
-    sig+spindle-phase-a
-    sig+spindle-phase-b
-    sig+spindle-index
-    sig+spindle-at-speed
-    sig+spindle-cw
-    sig+spindle-index-enable
-    sig+spindle-position
-    sig+spindle-pwm
-    sig+spindle-velocity-feedback-rps
-    sig+home-x
-    sig+home-z
-    pin+parport.0.pin-10-in
-    pin+parport.0.pin-11-in
-    pin+parport.0.pin-12-in
-    pin+parport.0.pin-13-in
-    pin+parport.0.pin-15-in
-    pin+parport.1.pin-10-in-not
-    pin+parport.1.pin-11-in-not
-    pin+parport.1.pin-12-in-not
-    pin+parport.1.pin-13-in-not
-    pin+parport.1.pin-15-in-not
-    pin+parport.1.pin-10-in
-    pin+parport.1.pin-11-in
-    pin+parport.1.pin-12-in
-    pin+parport.1.pin-13-in
-    pin+parport.1.pin-14-out
-    pin+parport.1.pin-15-in
-    pin+parport.1.pin-16-out
-    pin+parport.1.pin-17-out
+    pin+spindle-vfd.Test.Orden.float
+    pin+spindle-vfd.Test.num_errors
+    pin+spindle-vfd.Test.Orden.int
+    pin+spindle-vfd.Test2.num_errors
+    pin+spindle-vfd.Test3.num_errors
+    pin+spindle-vfd.runmode.num_errors
 }
 set ::workmode watchhal
 set ::watchInterval 100
 set ::col1_width 100
 set ::ffmts 1
-set ::ifmts 0
+set ::ifmts 
 set ::alwaysOnTop 0
 set ::autoSaveWatchlist 1

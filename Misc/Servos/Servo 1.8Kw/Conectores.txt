@@ -1,0 +1,43 @@
+Conector         1.8Kw    3kW		Rudo
+Servo
+
+1	GND	VERDE	VERDE		4-Verde
+2	U	ROJO	CAFE		1-Rojo
+3	V	BLANCO	AZUL		2-Negro
+4	W	NEGRO	NEGRO		3-Bco
+
+
+
+
+Conector DB44 Señales
+
+41	P+	Nar/Bco
+43	P-	Nar
+37	D+	Verd/Bco
+39	D-	Azul
+5	Alm+	Cafe/Bco
+4	Alm -	Cafe
+
+
+
+
+
+
+
+
+P-098 Enable = 1
+
+P-029 = 8  (250 PPmm)
+=============================
+Encoder 2500PPR  Driver 4*2500= 10,000PPR
+P-029 = 8 = 10,000/8 = 1250PPR
+
+1250PPR = 5mm
+   250P = 1mm
+      0.004mm  Resolucion por paso minima
+=============================
+
+
+p-080 = 600  OUT OF RANGE
+
+
