@@ -1,16 +1,16 @@
 # Halshow settings
 # This file is generated automatically.
-wm geometry . 717x572+91+41
+wm geometry . 717x572+98+103
 placeFrames 0.3
 set ::ratio 0.3
 set ::old_w_leftf 160
 set ::watchlist {
-    pin+spindle-vfd.Test.Orden.float
-    pin+spindle-vfd.Test.num_errors
-    pin+spindle-vfd.Test.Orden.int
-    pin+spindle-vfd.Test2.num_errors
-    pin+spindle-vfd.Test3.num_errors
-    pin+spindle-vfd.runmode.num_errors
+    pin+MbRTU.ATC-IR.RealTool.float
+    pin+MbRTU.ATC-IR.RealTool.int
+    pin+MbRTU.ATC-MR.Orden.float
+    pin+MbRTU.ATC-MR.Orden.int
+    pin+MbRTU.ATC-MR.RqstTC.float
+    pin+MbRTU.ATC-MR.RqstTC.int
 }
 set ::workmode watchhal
 set ::watchInterval 100

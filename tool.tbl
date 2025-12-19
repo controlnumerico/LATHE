@@ -2,8 +2,3 @@ T1  P1  X-6.896308  Z-34.771575  D1  Q1  ;1/8 end mill
 T2  P2  Z0.1  D1  Q2  ;1/16 end mill
 T3  P3  Z1.273  D1  Q3  ;#7 tap drill
 T4  P4  Z1  D2  Q4  ;added 20231111
-T5  P5  Z0.59  D1  Q5
-T6  P6  Z0.1  D1  Q6  ;1/16 end mill
-T7  P7  X-10.461067  Z-31.510658  D0.2  I87.000000  J32.000000  Q3
-T8  P8  Z1  D2  Q8  ;added 20231111
-T10  P10  Z0  ;Agregado 20250214

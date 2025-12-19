@@ -1,8 +1,12 @@
 #!/bin/bash
-voltage=$1
- 
+RqstTC=$1
 
-echo $voltage > /home/cnc/linuxcnc/nc_files/1.txt
+halcmd setp MbRTU.ATC-MR.RqstTC.float $RqstTC
+halcmd setp MbRTU.ATC-MR.Orden.float 170
+sleep 1
+halcmd setp MbRTU.ATC-MR.Orden.float 0
+
+
 exit 0
 
 

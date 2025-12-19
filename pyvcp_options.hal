@@ -38,5 +38,5 @@ net spindle-at-speed       => pyvcp.spindle-at-speed-led
 
 net spindle-at-speed       => pyvcp.spindle-at-speed-led
 
-net RealT spindle-vfd.Test3.RealTool.float pyvcp.RealT
+net RealT MbRTU.ATC-IR.RealTool.float pyvcp.RealT
 
